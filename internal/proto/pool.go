@@ -12,12 +12,6 @@ var (
 		},
 	}
 
-	writerPool = sync.Pool{
-		New: func() any {
-			return bufio.NewWriterSize(nil, 4096)
-		},
-	}
-
 	bytePool = sync.Pool{
 		New: func() any {
 			b := make([]byte, 64)
