@@ -1,7 +1,7 @@
 # Redis client for Go
 
 [![build workflow](https://github.com/redis/go-redis/actions/workflows/build.yml/badge.svg)](https://github.com/redis/go-redis/actions)
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/redis/go-redis/v9)](https://pkg.go.dev/github.com/redis/go-redis/v9?tab=doc)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/ad3n/go-redis/v9)](https://pkg.go.dev/github.com/ad3n/go-redis/v9?tab=doc)
 [![Documentation](https://img.shields.io/badge/redis-documentation-informational)](https://redis.uptrace.dev/)
 [![codecov](https://codecov.io/github/redis/go-redis/graph/badge.svg?token=tsrCZKuSSw)](https://codecov.io/github/redis/go-redis)
 [![Chat](https://discordapp.com/api/guilds/752070105847955518/widget.png)](https://discord.gg/rWtp5Aj)
@@ -45,8 +45,8 @@ in the `go.mod` to `go 1.24` in one of the next releases.
 
 - [Discussions](https://github.com/redis/go-redis/discussions)
 - [Chat](https://discord.gg/rWtp5Aj)
-- [Reference](https://pkg.go.dev/github.com/redis/go-redis/v9)
-- [Examples](https://pkg.go.dev/github.com/redis/go-redis/v9#pkg-examples)
+- [Reference](https://pkg.go.dev/github.com/ad3n/go-redis/v9)
+- [Examples](https://pkg.go.dev/github.com/ad3n/go-redis/v9#pkg-examples)
 
 ## Ecosystem
 
@@ -84,7 +84,7 @@ go mod init github.com/my/repo
 Then install go-redis/**v9**:
 
 ```shell
-go get github.com/redis/go-redis/v9
+go get github.com/ad3n/go-redis/v9
 ```
 
 ## Quickstart
@@ -94,7 +94,7 @@ import (
     "context"
     "fmt"
 
-    "github.com/redis/go-redis/v9"
+    "github.com/ad3n/go-redis/v9"
 )
 
 var ctx = context.Background()
@@ -152,7 +152,7 @@ to this specification.
 
 ```go
 import (
-    "github.com/redis/go-redis/v9"
+    "github.com/ad3n/go-redis/v9"
 )
 
 func ExampleClient() *redis.Client {
@@ -171,7 +171,7 @@ func ExampleClient() *redis.Client {
 
 ```go
 import (
-    "github.com/redis/go-redis/v9"
+    "github.com/ad3n/go-redis/v9"
     "github.com/redis/go-redis/extra/redisotel/v9"
     "errors"
 )

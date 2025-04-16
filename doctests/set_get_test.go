@@ -6,7 +6,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/redis/go-redis/v9"
+	"github.com/ad3n/go-redis/v9"
 )
 
 func ExampleClient_Set_and_get() {

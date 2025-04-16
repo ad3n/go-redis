@@ -2,9 +2,9 @@ module github.com/redis/go-redis/example/hll
 
 go 1.18
 
-replace github.com/redis/go-redis/v9 => ../..
+replace github.com/ad3n/go-redis/v9 => ../..
 
-require github.com/redis/go-redis/v9 v9.8.0-beta.1
+require github.com/ad3n/go-redis/v9 v9.8.0-beta.1
 
 require (
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect

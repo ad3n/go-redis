@@ -9,7 +9,7 @@ import (
 	"math/big"
 	"strconv"
 
-	"github.com/redis/go-redis/v9/internal/util"
+	"github.com/ad3n/go-redis/v9/internal/util"
 )
 
 // redis resp protocol data type.
@@ -57,8 +57,11 @@ type Reader struct {
 }
 
 func NewReader(rd io.Reader) *Reader {
+	buf := readerPool.Get().(*bufio.Reader)
+	buf.Reset(rd)
+
 	return &Reader{
-		rd: bufio.NewReader(rd),
+		rd: buf,
 	}
 }
 
@@ -72,6 +75,12 @@ func (r *Reader) Peek(n int) ([]byte, error) {
 
 func (r *Reader) Reset(rd io.Reader) {
 	r.rd.Reset(rd)
+}
+
+func (r *Reader) Close() error {
+	readerPool.Put(r.rd)
+
+	return nil
 }
 
 // PeekReplyType returns the data type of the next response without advancing the Reader,

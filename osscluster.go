@@ -14,11 +14,11 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/redis/go-redis/v9/internal"
-	"github.com/redis/go-redis/v9/internal/hashtag"
-	"github.com/redis/go-redis/v9/internal/pool"
-	"github.com/redis/go-redis/v9/internal/proto"
-	"github.com/redis/go-redis/v9/internal/rand"
+	"github.com/ad3n/go-redis/v9/internal"
+	"github.com/ad3n/go-redis/v9/internal/hashtag"
+	"github.com/ad3n/go-redis/v9/internal/pool"
+	"github.com/ad3n/go-redis/v9/internal/proto"
+	"github.com/ad3n/go-redis/v9/internal/rand"
 )
 
 const (

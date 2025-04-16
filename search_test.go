@@ -7,9 +7,9 @@ import (
 	"strings"
 	"time"
 
+	"github.com/ad3n/go-redis/v9"
 	. "github.com/bsm/ginkgo/v2"
 	. "github.com/bsm/gomega"
-	"github.com/redis/go-redis/v9"
 )
 
 func WaitForIndexing(c *redis.Client, index string) {

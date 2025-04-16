@@ -1,6 +1,7 @@
 package proto
 
 import (
+	"bufio"
 	"encoding"
 	"fmt"
 	"io"
@@ -8,7 +9,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/redis/go-redis/v9/internal/util"
+	"github.com/ad3n/go-redis/v9/internal/util"
 )
 
 type writer interface {
@@ -26,12 +27,21 @@ type Writer struct {
 }
 
 func NewWriter(wr writer) *Writer {
+	buf := writerPool.Get().(*bufio.Writer)
+	buf.Reset(wr)
+
 	return &Writer{
-		writer: wr,
+		writer: buf,
 
 		lenBuf: make([]byte, 64),
 		numBuf: make([]byte, 64),
 	}
+}
+
+func (w *Writer) Close() error {
+	writerPool.Put(w.writer)
+
+	return nil
 }
 
 func (w *Writer) WriteArgs(args []interface{}) error {

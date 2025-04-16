@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/redis/go-redis/v9"
+	"github.com/ad3n/go-redis/v9"
 )
 
 func ExampleClient_query_agg() {

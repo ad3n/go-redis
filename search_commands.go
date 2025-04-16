@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/redis/go-redis/v9/internal"
-	"github.com/redis/go-redis/v9/internal/proto"
+	"github.com/ad3n/go-redis/v9/internal"
+	"github.com/ad3n/go-redis/v9/internal/proto"
 )
 
 type SearchCmdable interface {
