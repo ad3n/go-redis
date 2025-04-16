@@ -30,15 +30,36 @@ func NewWriter(wr writer) *Writer {
 	buf := writerPool.Get().(*bufio.Writer)
 	buf.Reset(wr)
 
+	lenBuf := bytePool.Get().(*[]byte)
+	numBuf := bytePool.Get().(*[]byte)
+
 	return &Writer{
 		writer: buf,
 
-		lenBuf: make([]byte, 64),
-		numBuf: make([]byte, 64),
+		lenBuf: *lenBuf,
+		numBuf: *numBuf,
 	}
 }
 
-func (w *Writer) Close() error {
+func (w *Writer) Reset(wr writer) {
+	if bw, ok := w.writer.(*bufio.Writer); ok {
+		bw.Reset(wr)
+	}
+}
+
+func (w *Writer) Flush() error {
+	if bw, ok := w.writer.(*bufio.Writer); ok {
+		err := bw.Flush()
+		if err != nil {
+			return err
+		}
+	}
+
+	w.lenBuf = w.lenBuf[:0]
+	w.numBuf = w.numBuf[:0]
+
+	bytePool.Put(&w.lenBuf)
+	bytePool.Put(&w.numBuf)
 	writerPool.Put(w.writer)
 
 	return nil
